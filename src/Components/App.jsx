@@ -8,6 +8,8 @@ function App() {
   return (
     <div>
       <div className={styles.header}>
+        <span className={styles.headerText}>App Bar</span>
+        <span className={styles.spacer} />
         <button className={styles.headerItem}>Item 1</button>
         <button className={styles.headerItem}>Item 2</button>
         <button className={styles.headerItem}>Item 3</button>

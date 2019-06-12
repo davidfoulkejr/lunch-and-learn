@@ -1,0 +1,104 @@
+.group {
+  position: relative;
+  min-width: 200px;
+}
+
+.inputField {
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px 10px 10px 6px;
+  background-color: none;
+}
+.inputField:focus {
+  outline: none;
+}
+.inputField.default {
+  border: none;
+  border-bottom: 1px solid #888;
+}
+.inputField.outlined {
+  border: 1px solid #888;
+  border-radius: 3px;
+  transition: 0.2s ease all;
+}
+.inputField.outlined.primary:focus {
+  border: 2px solid var(--primary-color);
+}
+.inputField.outlined.secondary:focus {
+  border: 2px solid var(--secondary-color);
+}
+.inputField.outlined:hover {
+  border: 1px solid #000;
+}
+.inputField.default:hover {
+  border-bottom: 1px solid #000;
+}
+
+.label {
+  color: #888;
+  position: absolute;
+  top: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.inputField.default ~ .label {
+  left: 6px;
+}
+.inputField.outlined ~ .label {
+  left: 10px;
+}
+
+.inputField:focus ~ .label,
+.inputField:not([value=""]) ~ .label {
+  top: -6px;
+  font-size: 0.7em;
+}
+.inputField:focus ~ .label.primary {
+  color: var(--primary-color);
+}
+.inputField:focus ~ .label.secondary {
+  color: var(--secondary-color);
+}
+.inputField.outlined:focus ~ .label,
+.inputField.outlined:not([value=""]) ~ .label {
+  background-color: white;
+  padding: 2px 4px;
+}
+
+.base {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.base:before,
+.base:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.base:before {
+  left: calc(50% + 8px);
+}
+.base:after {
+  right: calc(50% - 8px);
+}
+.base.primary:before,
+.base.primary:after {
+  background-color: var(--primary-color);
+}
+.base.secondary:before,
+.base.secondary:after {
+  background-color: var(--secondary-color);
+}
+
+.inputField.default:focus ~ .base:before,
+.inputField.default:focus ~ .base:after {
+  width: calc(50% + 8px);
+}

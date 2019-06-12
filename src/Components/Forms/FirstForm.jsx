@@ -2,30 +2,36 @@ import React from "react";
 
 import FormContainer from "./FormContainer";
 import formStyles from "./FirstForm.module.css";
+import { FormField } from "./FormField";
 
-const FirstForm = ({ fields, onChangeField }) => {
-  function idTransform(field) {
-    return `FirstForm-${field.name.split(" ").join("")}`;
-  }
-
-  const fieldValues = fields.filter(field => Boolean(field.value));
+const FirstForm = ({ fieldValues, onChangeField }) => {
+  const displayFields = Object.keys(fieldValues)
+    .filter(f => fieldValues[f])
+    .map(f => ({
+      name: f,
+      value: fieldValues[f]
+    }));
   return (
     <div>
-      <div>
-        {fields.map(field => (
-          <div key={idTransform(field)} className={formStyles.formContainer}>
-            <input
-              className={formStyles.fieldContainer}
-              name={field.name}
-              value={field.value}
-              placeholder={field.name}
-              onChange={onChangeField}
-            />
-          </div>
-        ))}
+      <div className={formStyles.formContainer}>
+        <div className={formStyles.fieldContainer}>
+          <FormField
+            name="Hello"
+            value={fieldValues["Hello"] || ""}
+            onChange={onChangeField}
+          />
+        </div>
+        <div className={formStyles.fieldContainer}>
+          <FormField
+            name="World"
+            value={fieldValues["World"] || ""}
+            variant="outlined"
+            onChange={onChangeField}
+          />
+        </div>
       </div>
 
-      {fieldValues.map(val => (
+      {displayFields.map(val => (
         <div>
           {val.name}: {val.value}
         </div>
@@ -34,4 +40,4 @@ const FirstForm = ({ fields, onChangeField }) => {
   );
 };
 
-export default FormContainer("first")(FirstForm);
+export default FormContainer(FirstForm);

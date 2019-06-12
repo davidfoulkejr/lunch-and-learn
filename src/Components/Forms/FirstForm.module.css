@@ -8,7 +8,7 @@
 .fieldContainer {
   flex: 1 0 auto;
   width: 200px;
-  margin-bottom: 2em;
+  margin-bottom: 10px;
 }
 
 .formField {

@@ -21,6 +21,11 @@
   font-size: 1em;
 }
 
+.xs {
+  padding: 8px 12px;
+  font-size: 0.8em;
+}
+
 .primary {
   background-color: var(--primary-color);
   color: var(--primary-color-text-accent);
@@ -28,7 +33,7 @@
 
 .secondary {
   background-color: var(--secondary-color);
-  color: var(--primary-color-text-accent);
+  color: var(--secondary-color-text-accent);
 }
 
 .ripple {

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.css";
 
 const Button = props => {
-  const { onClick, color = "secondary", size = "small", ...others } = props;
+  const { onClick, color = "primary", size = "small", ...others } = props;
 
   return (
     <button

@@ -12,7 +12,7 @@ const ItemList = ({ items, activeItem = "", changeItem }) => {
       <div className={styles.listContainer}>
         {items.map(item => (
           <div key={item.id} className={styles.item}>
-            <Button onClick={changeItem} value={item.title}>
+            <Button onClick={changeItem} value={item.title} size="xs">
               {item.title}
             </Button>
           </div>
